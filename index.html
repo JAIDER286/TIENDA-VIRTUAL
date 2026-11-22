@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CYBERNETIC APPAREL</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">CYBERNETIC APPAREL</div>
+  <div class="search-basic">
+    <input id="searchInput" type="text" placeholder="Buscar artículos por nombre...">
+  </div>
+  <div class="auth-area" id="authArea"></div>
+</header>
+
+<div class="advanced-bar">
+  <button id="toggleAdvanced" class="btn-neon btn-small">Búsqueda Avanzada ▾</button>
+  <div id="advancedPanel" class="advanced-panel hidden">
+    <div class="filter-group">
+      <label>Categoría</label>
+      <select id="filterCategory"></select>
+    </div>
+    <div class="filter-group">
+      <label>Precio máx: <span id="priceVal">0</span></label>
+      <input id="filterPrice" type="range" min="0" max="500" value="500">
+    </div>
+    <div class="filter-group">
+      <label>Marca</label>
+      <select id="filterBrand"></select>
+    </div>
+    <button id="clearFilters" class="btn-neon btn-small btn-magenta">Limpiar Filtros</button>
+  </div>
+</div>
+
+<main class="layout">
+  <section class="products" id="productsGrid"></section>
+  <aside class="cart-panel">
+    <h2>MI CARRITO</h2>
+    <div id="cartItems" class="cart-items"></div>
+    <div class="cart-total">TOTAL A PAGAR: <span id="cartTotal">$0.00</span></div>
+    <button id="checkoutBtn" class="btn-neon">PROCEDER AL PAGO</button>
+  </aside>
+</main>
+
+<!-- Modal Autenticación -->
+<div id="authModal" class="modal hidden">
+  <div class="modal-content glass">
+    <button class="modal-close" data-close="authModal">&times;</button>
+    <div class="tabs">
+      <button class="tab active" data-tab="login">Iniciar Sesión</button>
+      <button class="tab" data-tab="register">Registrarse</button>
+    </div>
+    <form id="loginForm" class="tab-panel">
+      <input type="email" id="loginEmail" placeholder="Correo electrónico" required>
+      <input type="password" id="loginPass" placeholder="Contraseña" required>
+      <button type="submit" class="btn-neon">Entrar</button>
+      <p id="loginMsg" class="msg"></p>
+    </form>
+    <form id="registerForm" class="tab-panel hidden">
+      <input type="text" id="regName" placeholder="Nombre completo" required>
+      <input type="email" id="regEmail" placeholder="Correo electrónico" required>
+      <input type="password" id="regPass" placeholder="Contraseña" required>
+      <button type="submit" class="btn-neon">Registrar</button>
+      <p id="regMsg" class="msg"></p>
+    </form>
+  </div>
+</div>
+
+<!-- Modal Detalle de Artículo -->
+<div id="detailModal" class="modal hidden">
+  <div class="modal-content glass detail">
+    <button class="modal-close" data-close="detailModal">&times;</button>
+    <img id="detailImg" src="" alt="Producto">
+    <div class="detail-info">
+      <h2 id="detailName"></h2>
+      <p class="cat" id="detailCat"></p>
+      <p class="price" id="detailPrice"></p>
+      <p id="detailDesc"></p>
+      <ul id="detailFeatures"></ul>
+      <p>STOCK: <span id="detailStock"></span> UNIDADES</p>
+      <div class="qty-control">
+        <button id="detailMinus" class="btn-neon btn-small">-</button>
+        <span id="detailQty">1</span>
+        <button id="detailPlus" class="btn-neon btn-small">+</button>
+      </div>
+      <button id="detailAdd" class="btn-neon">AÑADIR AL CARRITO</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Comprobante -->
+<div id="receiptModal" class="modal hidden">
+  <div class="modal-content glass receipt">
+    <button class="modal-close" data-close="receiptModal">&times;</button>
+    <h2>COMPRA EXITOSA</h2>
+    <div id="receiptBody"></div>
+    <button class="btn-neon" data-close="receiptModal">Cerrar</button>
+  </div>
+</div>
+
+<div id="toast" class="toast hidden"></div>
+
+<script src="data.js?v=4"></script>
+<script src="app.js?v=4"></script>
+</body>
+</html>
