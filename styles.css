@@ -485,3 +485,52 @@ body {
   .cart-panel { position: static; height: auto; }
   .modal-content.detail { grid-template-columns: 1fr; }
 }
+
+.tab-panel[hidden], .modal[hidden] { display: none !important; }
+
+#loginModal .modal-content,
+#registerModal .modal-content {
+  max-width: 420px;
+  width: 90%;
+  padding: 28px;
+}
+
+#loginModal h2,
+#registerModal h2 {
+  text-align: center;
+  color: #00f0ff;
+}
+
+#loginForm, #registerForm {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 18px;
+}
+
+#loginForm input, #registerForm input {
+  background: rgba(10, 15, 30, 0.92);
+  color: #ffffff;
+  border: 1px solid rgba(0, 240, 255, 0.45);
+  padding: 12px 15px;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  transition: 0.3s;
+}
+
+#loginForm input::placeholder, #registerForm input::placeholder {
+  color: #94a3b8;
+}
+
+#loginForm input:focus, #registerForm input:focus {
+  border-color: #00f0ff;
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.4);
+}
+
+#loginForm button, #registerForm button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 6px;
+  font-weight: bold;
+}

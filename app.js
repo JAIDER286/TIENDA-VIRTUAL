@@ -111,8 +111,8 @@ function escapeHtml(s) {
 }
 
 // ---------- Carga de productos ----------
-const ML_STORES = ['KOAJ', 'Arturo Calle', 'Mattelsa', 'Tennis', 'Gef', 'Seven Seven'];
-const ML_CATS = ['Chaquetas', 'Camisetas', 'Pantalones', 'Buzos', 'Sacos'];
+const ML_STORES = ['KOAJ', 'Arturo Calle', 'Mattelsa', 'Tennis', 'Seven Seven'];
+const ML_CATS = ['Chaquetas', 'Camisetas', 'Pantalones', 'Hoodies'];
 
 function mapMlProduct(p, index) {
   const store = ML_STORES[index % ML_STORES.length];
@@ -327,7 +327,7 @@ function openDetail(id) {
 function checkout() {
   if (!currentUser) {
     showToast('Debes iniciar sesión para proceder al pago.');
-    openAuth('login');
+    openModal('loginModal');
     return;
   }
   if (cart.length === 0) {
@@ -381,8 +381,8 @@ function renderAuth() {
   } else {
     area.innerHTML = `<button id="loginBtn" class="btn-neon btn-small">Iniciar Sesión</button>
       <button id="registerBtn" class="btn-neon btn-small btn-magenta">Registrarse</button>`;
-    document.getElementById('loginBtn').onclick = () => openAuth('login');
-    document.getElementById('registerBtn').onclick = () => openAuth('register');
+    document.getElementById('loginBtn').onclick = () => openModal('loginModal');
+    document.getElementById('registerBtn').onclick = () => openModal('registerModal');
   }
 }
 
@@ -510,10 +510,11 @@ document.addEventListener('DOMContentLoaded', () => {
     msg.textContent = 'Registro exitoso. Ahora inicia sesión.';
     msg.classList.add('ok');
     setTimeout(() => {
-      switchTab('login');
+      closeModal('registerModal');
       const li = document.getElementById('loginEmail');
       if (li) li.value = email;
       const rm = document.getElementById('regMsg'); if (rm) { rm.textContent = ''; rm.classList.remove('ok'); }
+      openModal('loginModal');
     }, 900);
   });
 

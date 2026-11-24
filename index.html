@@ -45,21 +45,26 @@
   </aside>
 </main>
 
-<!-- Modal Autenticación -->
-<div id="authModal" class="modal hidden">
+<!-- Modal Iniciar Sesión -->
+<div id="loginModal" class="modal hidden">
   <div class="modal-content glass">
-    <button class="modal-close" data-close="authModal">&times;</button>
-    <div class="tabs">
-      <button class="tab active" data-tab="login">Iniciar Sesión</button>
-      <button class="tab" data-tab="register">Registrarse</button>
-    </div>
-    <form id="loginForm" class="tab-panel">
+    <button class="modal-close" data-close="loginModal">&times;</button>
+    <h2>Iniciar Sesión</h2>
+    <form id="loginForm">
       <input type="email" id="loginEmail" placeholder="Correo electrónico" required>
       <input type="password" id="loginPass" placeholder="Contraseña" required>
       <button type="submit" class="btn-neon">Entrar</button>
       <p id="loginMsg" class="msg"></p>
     </form>
-    <form id="registerForm" class="tab-panel hidden">
+  </div>
+</div>
+
+<!-- Modal Registrarse -->
+<div id="registerModal" class="modal hidden">
+  <div class="modal-content glass">
+    <button class="modal-close" data-close="registerModal">&times;</button>
+    <h2>Registrarse</h2>
+    <form id="registerForm">
       <input type="text" id="regName" placeholder="Nombre completo" required>
       <input type="email" id="regEmail" placeholder="Correo electrónico" required>
       <input type="password" id="regPass" placeholder="Contraseña" required>
@@ -103,7 +108,7 @@
 
 <div id="toast" class="toast hidden"></div>
 
-<script src="data.js?v=4"></script>
-<script src="app.js?v=4"></script>
+<script src="data.js?v=8"></script>
+<script src="app.js?v=8"></script>
 </body>
 </html>
